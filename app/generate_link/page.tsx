@@ -1,4 +1,4 @@
-import {supabase} from '../components/init'
+import {supabase} from '@/components/init'
 import { createClient } from '@supabase/supabase-js'
 
 export default function GenerateLink() {

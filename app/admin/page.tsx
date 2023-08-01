@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Router from 'next/router'
-import {supabase} from '../components/init'
+import {supabase} from '@/components/init'
 import { createClient } from '@supabase/supabase-js'
 
 
