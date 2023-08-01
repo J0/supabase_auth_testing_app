@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 /**
  * EnrollMFA shows a simple enrollment dialog. When shown on screen it calls
@@ -9,65 +9,63 @@ import React, { useState, useEffect } from 'react';
  * Cancel the `onCancelled` callback is called.
  */
 
-
-import {supabase} from './init'
+import { supabase } from "./init";
 
 // Create a single supabase client for interacting with your database
-
 
 export function EnrollMFA({
   onEnrolled,
   onCancelled,
 }: {
-  onEnrolled: () => void
-  onCancelled: () => void
+  onEnrolled: () => void;
+  onCancelled: () => void;
 }) {
-  const [factorId, setFactorId] = useState('')
-  const [qr, setQR] = useState('') // holds the QR code image SVG
-  const [verifyCode, setVerifyCode] = useState('') // contains the code entered by the user
-  const [error, setError] = useState('') // holds an error message
+  const [factorId, setFactorId] = useState("");
+  const [qr, setQR] = useState(""); // holds the QR code image SVG
+  const [verifyCode, setVerifyCode] = useState(""); // contains the code entered by the user
+  const [error, setError] = useState(""); // holds an error message
 
   const onEnableClicked = () => {
-    setError('')
-    ;(async () => {
-      const challenge = await supabase.auth.mfa.challenge({ factorId })
+    setError("");
+    (async () => {
+      const challenge = await supabase.auth.mfa.challenge({ factorId });
       if (challenge.error) {
-        setError(challenge.error.message)
-        throw challenge.error
+        setError(challenge.error.message);
+        throw challenge.error;
       }
 
-      const challengeId = challenge.data.id
+      const challengeId = challenge.data.id;
 
       const verify = await supabase.auth.mfa.verify({
         factorId,
         challengeId,
         code: verifyCode,
-      })
+      });
       if (verify.error) {
-        setError(verify.error.message)
-        throw verify.error
+        setError(verify.error.message);
+        throw verify.error;
       }
 
-      onEnrolled()
-    })()
-  }
+      onEnrolled();
+    })();
+  };
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       const { data, error } = await supabase.auth.mfa.enroll({
-        factorType: 'totp',
-      })
+        factorType: "totp",
+      });
       if (error) {
-        throw error
+        throw error;
       }
 
-      setFactorId(data.id)
+      setFactorId(data.id);
 
       // Supabase Auth returns an SVG QR code which you can convert into a data
       // URL that you can place in an <img> tag.
-      setQR(data.totp.qr_code)
-    })()
-  }, [])
+      setQR(data.totp.qr_code);
+    })();
+  }, []);
 
   return (
     <>
@@ -81,6 +79,5 @@ export function EnrollMFA({
       <input type="button" value="Enable" onClick={onEnableClicked} />
       <input type="button" value="Cancel" onClick={onCancelled} />
     </>
-  )
+  );
 }
-

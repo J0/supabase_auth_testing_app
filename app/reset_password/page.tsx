@@ -9,9 +9,6 @@ import React, { useState, useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-  return (
-    <>
-      <div>Test</div>
-    </>
-  );
+export default function ResetPage() {
+  return <div>Test</div>;
 }

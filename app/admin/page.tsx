@@ -45,10 +45,7 @@ export default function Admin() {
 
   return (
     <>
-      <button onClick={signUp}>Sign Up (Email)</button>
-      <button onClick={createAdminUser}>Create an admin user</button>
-      <button onClick={invite}> Invite a user </button>
-      <button onClick={generateSignUpLink}> Generate Signup Link </button>
+      <div> Test</div>
     </>
   );
 }
