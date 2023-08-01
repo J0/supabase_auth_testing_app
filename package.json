@@ -1,23 +1,29 @@
 {
-  "name": "mfa_test",
+  "name": "supabase_auth_testing_app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@supabase/supabase-js": "file:../../projects/supabase-js",
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
-    "next": "13.1.6",
+    "next": "^13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.32.3",
+    "cypress": "^12.9.0",
+    "encoding": "^0.1.13"
   }
 }
