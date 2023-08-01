@@ -1,12 +1,12 @@
-'use client'
-import Head from 'next/head'
+"use client";
+import Head from "next/head";
 
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import {EnrollMFA} from '@/components/Enroll'
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "@/styles/Home.module.css";
+import { EnrollMFA } from "@/components/Enroll";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function EnrollPage() {
   return (
@@ -17,7 +17,10 @@ export default function EnrollPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <EnrollMFA onEnrolled={()=>console.log("cool")} onCancelled={()=>console.log("other")}></EnrollMFA>
+      <EnrollMFA
+        onEnrolled={() => console.log("cool")}
+        onCancelled={() => console.log("other")}
+      ></EnrollMFA>
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
@@ -30,7 +33,7 @@ export default function EnrollPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -42,7 +45,6 @@ export default function EnrollPage() {
             </a>
           </div>
         </div>
-
 
         <div className={styles.grid}>
           <a
@@ -104,5 +106,5 @@ export default function EnrollPage() {
         </div>
       </main>
     </>
-  )
+  );
 }
