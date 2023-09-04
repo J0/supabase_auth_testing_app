@@ -13,12 +13,12 @@ export default function EmailChange() {
     }
 
     async function verifyToken() {
-        const { data, error } = await supabase.auth.verifyOtp({ token_hash: 'pkce_63d251af63199d213fc04e6f18256c3b36e98a1d52614cfae6ceb18e', type: 'email_change'})
+        const { data, error } = await supabase.auth.verifyOtp({ token_hash: '', type: 'email_change'})
         console.log(data)
         console.log(error)
     }
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: any)=> {
       setInputText(e.target.value)
     };
 
@@ -33,12 +33,12 @@ export default function EmailChange() {
     return (
         <div className="flex justify-center">
             <div>
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Email To Verify</label>
-                <input type="text" id="email" onChange={handleChange} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required/>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Email To Verify</label>
+                <input type="text" id="email" onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required/>
             </div>
             <div>
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Second Email</label>
-                <input type="text" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required/>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Second Email</label>
+                <input type="text" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required/>
             </div>
             <button className="bg-blue-700" onClick={executeEmailChange}>Email Change </button>
             <button className="bg-blue-700" onClick={verifyToken}>Verify Token </button>

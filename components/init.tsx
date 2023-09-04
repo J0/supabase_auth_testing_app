@@ -1,5 +1,6 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, AuthFlowType } from "@supabase/supabase-js";
 
+const PKCE: AuthFlowType = 'pkce'
 const options = {
   db: {
     schema: "public",
@@ -9,7 +10,6 @@ const options = {
     persistSession: true,
     detectSessionInUrl: true,
     debug: true,
-    flowType: 'pkce',
   },
   global: {
     headers: { "x-my-custom-header": "my-app-name" },
