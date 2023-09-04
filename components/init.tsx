@@ -9,6 +9,7 @@ const options = {
     persistSession: true,
     detectSessionInUrl: true,
     debug: true,
+    flowType: 'pkce',
   },
   global: {
     headers: { "x-my-custom-header": "my-app-name" },
